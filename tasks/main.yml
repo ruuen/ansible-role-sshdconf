@@ -1,0 +1,14 @@
+--- 
+- name: Copy sshd config file into sshd drop-in config directory
+  become: true
+  ansible.builtin.template:
+    src: sshd-conf-template.conf
+    dest: '{{sshd_dropin_config_dir}}/{{sshd_dropin_config_filename}}'
+    owner: root
+    group: root
+    mode: 0600
+  notify: restart sshd
+
+- name: Flush handlers to trigger sshd restart
+  ansible.builtin.meta: flush_handlers
+

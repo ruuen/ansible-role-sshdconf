@@ -1,0 +1,8 @@
+---
+sshd_dropin_config_dir: /etc/ssh/sshd_config.d  # location of sshd dropin config directory
+sshd_dropin_config_filename: 10-custom-settings.conf  # name of target dropin config file
+
+### sshd config items ###
+sshd_login_grace_time: 60
+sshd_max_auth_tries: 3
+
