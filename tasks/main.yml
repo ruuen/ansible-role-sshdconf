@@ -2,7 +2,7 @@
 - name: Copy sshd config file into sshd drop-in config directory
   become: true
   ansible.builtin.template:
-    src: sshd-conf-template.conf
+    src: sshd-conf-template.conf.j2
     dest: '{{sshd_dropin_config_dir}}/{{sshd_dropin_config_filename}}'
     owner: root
     group: root
